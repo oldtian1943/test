@@ -1,0 +1,10 @@
+{% extends 'blogs/base.html' %}
+{% block content %}
+
+  <p>{{post.date_added|date:'M d, Y H:i'}}</p> 
+  <p>{{post.title}}</p>
+  <p>{{post.text|linebreaks}}</p>
+  {% if PostOwner %}
+    <p><a href='{% url 'blogs:edit_post' post.id %}'>重新编辑</a></p>
+  {% endif %}    
+{% endblock content %}        

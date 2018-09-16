@@ -1,0 +1,23 @@
+{% extends 'blogs/base.html' %}
+
+{% block header %}
+  <div class='jumbotron'>
+    <h1>欢迎来到欧德世界！嘎嘎嘎</h1>
+  </div>
+{% endblock header %}    
+
+{% block content %}
+ 
+  
+  <ul>
+  {% for post in posts %}
+    <li>
+      <h3><a href='{% url 'blogs:post' post.id %}'>{{ post.title}}</a></h3>
+    </li>
+  {% empty %}  
+    <li>欧德博客里还没有帖子呢。</li>
+  {% endfor %}
+  </ul>          
+  
+  <h3><a href='{% url 'blogs:add_post' %}'>写博客</h3>
+{% endblock content %}  
